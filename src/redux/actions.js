@@ -4,3 +4,10 @@ export const addTodo = (data) => {
         payload: data//truyen thong tin nguoi dung nhap tren phia UI
     }
 }
+
+export const searchFilterChange = (text) => {
+    return {
+        type: 'filters/searchFilterChange',
+        payload: text//du lieu nguoi dung go vao
+    }
+}

@@ -1,23 +1,22 @@
 import { Col, Row, Input, Button, Select, Tag } from 'antd';
 import Todo from '../Todo';
 import {useDispatch, useSelector} from "react-redux";
-import { addTodo } from '../../redux/action';
+import { addTodo } from '../../redux/actions';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { todoListSelector } from '../../redux/selector';
+import { todosRemainingSelector } from '../../redux/selector';
 
 export default function TodoList() {
   const [todoName, setTodoName] = useState(''); 
-  const [prioriry, setPriority] = useState('Medium');
-  const todoList = useSelector(todoListSelector);//day la 1 function dung de lay ra tung du lieu trong kho chung, todoListSelector duoc truyen tu selector.js
-  console.log(todoList)
+  const [priority, setPriority] = useState('Medium');
+  const todoList = useSelector(todosRemainingSelector);//useselector day la 1 function dung de lay ra tung du lieu trong kho chung, todoListSelector duoc truyen tu selector.js
   const dispatch = useDispatch();
   const handleAddButtonClick = () => {/*ham nay goi la event handler, trong ham dispatch 1 action la addTodo voi cac noi dung ben trong,
   khi dispatch 1 action nhu nay thi rootReducer se duoc goi*/
     dispatch(addTodo({
       id: uuidv4(),//dung uuidv4 de tao ra 1 id ngau nhien va duy nhat 
       name: todoName,
-      prioriry: prioriry,
+      priority: priority,
       completed: false
     })
     );
@@ -42,7 +41,7 @@ export default function TodoList() {
       <Col span={24}>
         <Input.Group style={{ display: 'flex' }} compact>
           <Input value={todoName} onChange={handleInputChange}/>
-          <Select defaultValue="Medium" value={prioriry} onChange={handlePriorityChange}>
+          <Select defaultValue="Medium" value={priority} onChange={handlePriorityChange}>
             <Select.Option value='High' label='High'>
               <Tag color='red'>High</Tag>
             </Select.Option>
