@@ -8,6 +8,13 @@ export const addTodo = (data) => {
 export const searchFilterChange = (text) => {
     return {
         type: 'filters/searchFilterChange',
-        payload: text//du lieu nguoi dung go vao
+        payload: text//du lieu nguoi dung go
+    }
+}
+
+export const statusFilterChange = (status) => {
+    return {
+        type: 'filter/statusFilterChange',
+        payload: status
     }
 }
