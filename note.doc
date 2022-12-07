@@ -1,0 +1,11 @@
+redux: action -> reducer 
+redux-saga để quản lý state
+
+luồng chạy , nhập thông tin trên UI -> dispatch 1 action ->reducer lắng nghe và xử lý cập nhật lại state tương ứng với các action , kho chung được cật nhật-> UI đọc dữ liệu từ kho chung và re render lại và hiển thị lên dữ liệu mới nhất 
+action tương ứng với các hành động ta thao tác trên UI
+dispatch: khi người dùng thực hiện 1 hành động trên phía UI thì ta dùng 1 function là dispatch để bắn đi 1 action để store nhận được thông tin và cập nhật dữ liệu tương ứng,
+
+phía trên cho biết những action đã được thực thi
+diff: thông tin nào ở trong kho chung đã được cập nhật
+state: kho chung hiện tại đang có dữ liệu gì
+trong code 
